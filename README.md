@@ -1,3 +1,5 @@
 # SampleGo
-以下サンプルアプリのバックエンド側\n
+以下サンプルアプリのバックエンド側
+
+
 https://github.com/Rin-t/PracticeHttpConnection
