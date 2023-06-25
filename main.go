@@ -11,5 +11,16 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "サクセス！！！")
+	if r.Method != http.MethodPost {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
+	}
+
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "Failed to parse form", http.StatusInternalServerError)
+		return
+	}
+
+	message := r.PostFormValue("message")
+	fmt.Fprintln(w, message+" Go")
 }
